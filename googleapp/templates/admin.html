@@ -1,0 +1,61 @@
+{% load staticfiles %}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<link href="{% static 'admin/css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="{% static 'admin/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- Custom Theme files -->
+<script src="{% static 'admin/js/jquery.min.js' %}"></script>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="File Upload Widget Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+</head>
+<body>
+
+<h1>UPLOAD FILES</h1>
+<a style="float: right;font-size: larger" href="{% url 'logout' %}">Logout</a>
+<div class="upload">
+			<h3>Select File</h3>
+		<div class="login-form">
+			<form  method="post" action="{% url 'upload' %}" enctype="multipart/form-data">{% csrf_token %}
+				<div id="drop">
+				<a>Upload</a>
+				<input type="file" name="upl" id="up1" required="required" />
+			</div>
+				<input type="submit" value="Upload">
+			</form>
+		</div>
+			
+	<!-- JavaScript Includes -->
+		<script src="{% static 'admin/js/jquery.knob.js' %}"></script>
+	<!-- JavaScript Includes -->
+
+	<!-- jQuery File Upload Dependencies -->
+		<script src="{% static 'admin/js/jquery.ui.widget.js' %}"></script>
+		<script src="{% static 'admin/js/jquery.iframe-transport.js' %}"></script>
+		<script src="{% static 'admin/js/jquery.fileupload.js' %}"></script>
+	<!-- jQuery File Upload Dependencies -->
+		
+	<!-- Main JavaScript file -->
+		<script src="{% static 'admin/js/script.js' %}"></script>
+	<!-- Main JavaScript file -->
+	
+</div>
+
+<div class="footer">
+</div>
+	
+</body>
+</html>

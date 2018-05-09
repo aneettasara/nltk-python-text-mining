@@ -1,0 +1,4 @@
+To run the project
+OPen cmd or terminal and locate to this directory
+then python manage.py runserver.
+There will be a link .Copy and paste the link in the browser

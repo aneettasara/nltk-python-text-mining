@@ -1,0 +1,106 @@
+<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<html>
+<head>
+<title>Flat Search Box Responsive Widget Template | Home :: w3layouts</title>
+<!-- Custom Theme files -->
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+<!-- Custom Theme files -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="Flat Search Box Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<!--Google Fonts-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!--Google Fonts-->
+
+        <style>
+.button {
+    background-color: #afac10;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    float: right;
+}
+li {
+color:red;
+}
+body {
+background-image:url("{% static '1-4.jpg' %}")
+}
+</style>
+</head>
+<body>
+<center><h1>QUEST</h1></center>
+<!--search start here-->
+<input type="button" class="button" id="logclk" value="Login"/><br><br>
+
+<div id="log" style="float: right">
+    <form action="{% url 'login' %}" method="post">{% csrf_token %}
+     <br><input type="text" name="user" placeholder="User Name" required="required"><br>
+     <br><input type="password" name="password" placeholder="password" required="required"><br>
+        <br>&nbsp; <input type="submit" value="Login">
+        <input type="button" id="can" value="Cancel">
+    </form>
+
+</div>
+<div class="search">
+	<i> </i>
+	<div class="s-bar">
+	   <form action={% url 'search' %} method="post">{% csrf_token %}
+		<input type="text" name="search" placeholder="Enter Search Query" required="required">
+		<input type="submit"  value="Search"/>
+	  </form>
+	</div></div>
+<br><br>
+<center>{{status}}</center>
+    {% for i,j in data %}
+
+ <center>
+     <div style="width:80%;float:left">
+     <div style="align-items: flex-start">
+        <a style="color:white;" href="{% url 'viewdata' %}?pk={{ i }}"><p style="font-size: larger">{{ i }}</p></a>
+        <div style="align-items: flex-start;width: 80%"><p style="color:white;">{{ j }}</p>
+     </div>
+     </div>
+ </div>
+ </center>
+   {% endfor %}
+<br>
+<br>
+<center><div style="font-color:red;width:300px;float:right;">
+   {% if st == 1  %}
+   <h3>Searches related to {{ query }}</h3>
+    <ul>
+        {% for data in sugge%}
+        <li><a style="color:blue;" href="{% url 'suggestions' %}?pk={{ data }}">{{ data }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+</div></center>
+<!--search end here-->
+<script type="text/javascript" src="{% static 'admin/js/jquery.min.js' %}"></script>
+<script>
+$(document).ready(function () {
+     $("#log").hide();
+    $("#logclk").click(function () {
+       $("#log").toggle();
+    });
+    $("#can").click(function () {
+        $("#log").hide();
+    });
+});
+    </script>
+</body>
+</html>

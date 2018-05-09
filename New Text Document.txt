@@ -1,0 +1,8 @@
+1.upload files
+    The admin is can add text type documents to the system.These documents are indexed to 
+decrease the searching time.
+
+2.Text preprocessing
+
+   Using the nltk package ,we preproxess the input query like stemming ,tokenizing etc.
+after the unwanted data is removed then we gets the essential details.Then we perform document search 
